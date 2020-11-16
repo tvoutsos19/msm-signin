@@ -333,11 +333,9 @@ describe "/movies/[MOVIE ID]" do
       find("button", :text => /Sign in/i ).click
     end
     
-    visit "/bookmarks"
+    visit "/movies/#{other_movie.id}"
     
-    within(:css, "form") do
-      find("button", :text => /Bookmark this movie/i).click
-    end
+    find("button", :text => /Bookmark this movie/i).click
     
     new_bookmarks_count = Bookmark.where({ :user_id => the_user.id }).count
     

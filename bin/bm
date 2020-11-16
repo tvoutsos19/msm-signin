@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# wget  -O bin/bm "https://tinyurl.com/msm-signin-data" && chmod 777 bin/bm && bin/bm
+require "open-uri"
+replace_path = "spec/features/2_bookmarks_spec.rb"
+
+format_file = File.open(replace_path, File::RDWR)
+
+url = "https://raw.githubusercontent.com/appdev-projects/msm-signin/master/spec/features/2_bookmarks_spec.rb"
+new_content = open(url).read
+
+File.open(format_file, "w") { |file| file << new_content }
