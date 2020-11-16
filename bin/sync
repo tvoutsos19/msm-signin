@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# wget  -O bin/sync "https://tinyurl.com/msm-signin-data" && chmod 777 bin/sync && bin/sync
+require "open-uri"
+replace_path = "lib/tasks/dev.rake"
+
+format_file = File.open(replace_path, File::RDWR)
+
+url = "https://raw.githubusercontent.com/appdev-projects/msm-signin/master/lib/tasks/dev.rake"
+new_content = open(url).read
+
+File.open(format_file, "w") { |file| file << new_content }
