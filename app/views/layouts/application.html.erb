@@ -30,6 +30,11 @@
         </li>
       <%else%>
         <li>
+          <a href="/bookmarks">
+            My bookmarks
+          </a>
+        </li>
+        <li>
           <a href="/edit_user_profile">
             Edit <%= @current_user.first_name%>
           </a>
@@ -51,7 +56,7 @@
       </li>
     </ul>
 
-    <p style="color:red"><%= notice %></p>
+    <p style="color:green"><%= notice %></p>
 
     <p style="color:red"><%= alert %></p>
 

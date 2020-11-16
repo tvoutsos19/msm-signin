@@ -26,4 +26,6 @@ class Movie < ApplicationRecord
 
   validates(:title, { :presence => true })
 
+  has_many(:users, { :through => :bookmarks, :source => :user })
+
 end

@@ -17,4 +17,8 @@ class User < ApplicationRecord
   validates(:last_name, { :uniqueness => true })
   validates(:first_name, { :uniqueness => true })
 
+  has_many(:bookmarks, { :class_name => "Bookmark", :foreign_key => "user_id", :dependent => :destroy })
+
+  has_many(:movies, { :through => :bookmarks, :source => :movie })
+
 end
