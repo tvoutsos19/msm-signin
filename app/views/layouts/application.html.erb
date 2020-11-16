@@ -17,6 +17,29 @@
   <body>
 
     <ul>
+      <% if @current_user == nil%>
+        <li>
+          <a href="/user_sign_in">
+            Sign in
+          </a>
+        </li>
+        <li>
+          <a href="/user_sign_up">
+            Sign up
+          </a>
+        </li>
+      <%else%>
+        <li>
+          <a href="/edit_user_profile">
+            Edit <%= @current_user.first_name%>
+          </a>
+        </li>
+        <li>
+          <a href="/user_sign_out">
+            Sign out
+          </a>
+        </li>
+      <%end%>
       <li>
         <a href="/movies">Movies</a>
       </li>
