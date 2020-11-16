@@ -13,4 +13,12 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
+
+  has_many(:characters, { :class_name => "Character", :foreign_key => "movie_id", :dependent => :destroy })
+
+  belongs_to(:director, { :required => false, :class_name => "Director", :foreign_key => "director_id" })
+
+  has_many(:cast, { :through => :characters, :source => :actor })
+
+  
 end
